@@ -1,7 +1,15 @@
 import numpy as np
 import random
 
-def q_learning_path(grid, start_pos, goal_pos, alpha=0.1, gamma=0.9, epsilon=0.2, episodes=5000, max_steps=50, allow_diagonals=False):
+# hyperparameters
+ALPHA = 0.1
+GAMMA = 0.9
+EPSILON = 0.2
+EPISODES = 5000
+MAX_STEPS = 50
+ALLOW_DIAGONALS = True
+
+def q_learning_path(grid, start_pos, goal_pos):
     # reward constants (can adjust if needed)
     s = -20      # start
     e = -1     # empty
@@ -14,7 +22,7 @@ def q_learning_path(grid, start_pos, goal_pos, alpha=0.1, gamma=0.9, epsilon=0.2
     # movement options
     base_actions = ["up", "down", "left", "right"]
     diag_actions = ["up-left", "up-right", "down-left", "down-right"]
-    actions = base_actions + diag_actions if allow_diagonals else base_actions
+    actions = base_actions + diag_actions if ALLOW_DIAGONALS else base_actions
 
     # initialize qtable
     Q = np.zeros((n_rows, n_cols, len(actions)))
