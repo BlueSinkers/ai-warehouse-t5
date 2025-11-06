@@ -1,6 +1,6 @@
 # Jay's Deliverables for QLearning
 
-##File: qlearn_sarsa.py
+File: qlearn_sarsa.py
 This file contains 3 classes (GridEnvironment, QLearningAgent, SarsaAgent)
 I used the libraries NumPy, Time, Sys
 
