@@ -17,6 +17,7 @@ This can be seen as in the example that is in the main function. While there is 
 This is different than the SARSA agent that goes further away from the restricted area and ends up taking more moves to get to the goal. 
 
 This can be seen as in both of their formula's used for their Q-value. 
+
 QLearning: Q(s, a) = Q(s, a) + alpha * (reward + gamma * max(Q(s', a') - Q(s,a))
                                                           a'
 SARSA: Q(s, a) = Q(s, a) + alpha * (reward + gamma * Q(s', a') - Q(s, a))
