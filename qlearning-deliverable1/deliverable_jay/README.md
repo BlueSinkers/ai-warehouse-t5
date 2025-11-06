@@ -19,7 +19,6 @@ This is different than the SARSA agent that goes further away from the restricte
 This can be seen as in both of their formula's used for their Q-value. 
 
 QLearning: Q(s, a) = Q(s, a) + alpha * (reward + gamma * max(Q(s', a') - Q(s,a))
-                                                          a'
                                                           
 SARSA: Q(s, a) = Q(s, a) + alpha * (reward + gamma * Q(s', a') - Q(s, a))
 
