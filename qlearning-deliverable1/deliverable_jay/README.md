@@ -1,7 +1,9 @@
 # Jay's Deliverables for QLearning
 
 File: qlearn_sarsa.py
+
 This file contains 3 classes (GridEnvironment, QLearningAgent, SarsaAgent)
+
 I used the libraries NumPy, Time, Sys
 
 This project requires an environment (number of rows, number of columns, starting position of the agent, position of the package, position of the goal, locations of walls, locations of restricted area, 
@@ -27,11 +29,11 @@ The difference in these formulas is that QLearning is getting the max a' as it i
 
 ## Hyperparameters for Running
 - These are the same for both QLearning and SARSA
-- Alpha / Learning Rate: How much you want the new information to override the old information or how fast the agent learns [High Alpha -> More importance to new info]
+- Alpha / Learning Rate: How much you want the new information to override the old information or how fast the agent learns [High Alpha = More importance to new info]
 - Gamma / Discount Rate: How much importance you want on future rewards compared to immediate rewards. [Higher gamma = more importance on future rewards]
-- Epsilon / Exploration Rate: The probability the agent will explore vs. explot. [Higher epsilon -> More exploration as it makes the agent more likely to pick random actions]
-- Epsilon Decay / Exploration Decay Rate: How fast the epsilon value decreases after each run.  [High Epsilon Decay -> Epsilon drops quickly and agent stops exploring quickly and begins to exploit (picking best known action)]
+- Epsilon / Exploration Rate: The probability the agent will explore vs. explot. [Higher epsilon = More exploration as it makes the agent more likely to pick random actions]
+- Epsilon Decay / Exploration Decay Rate: How fast the epsilon value decreases after each run.  [High Epsilon Decay = Epsilon drops quickly and agent stops exploring quickly and begins to exploit (picking best known action)]
 - Min Epsilon / Minimum Exploration Rate: The lowest epsilon will go [Choose a small, positive amount to make sure there is always some king of exploration happening]
-- Total_epochs: The number of runs the agent does for training [Higher total_epochs -> More runtime but better Q-table]
+- Total_epochs: The number of runs the agent does for training [Higher total_epochs = More runtime but better Q-table]
 
 
