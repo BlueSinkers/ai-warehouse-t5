@@ -174,12 +174,9 @@ class QLearningAgent:
             state, info = self.env.reset()
             done = False
             total_reward = 0
-
-            # Lowers curr_epsilon each epoch to reduce exploration over time (exploit more when smarter)
-            curr_epsilon = self.epsilon
             
             while not done:
-                action = self.choose_action(state, curr_epsilon)
+                action = self.choose_action(state, self.epsilon)
                 next_state, reward, done, info = self.env.step(action)
                 total_reward += reward
 
@@ -190,7 +187,8 @@ class QLearningAgent:
                 # Update Q-value. Alpha is the learning rate (how much new info overrides old info). Higher alpha = more new info. Lower alpha = more old info
                 self.q_table[state, action] += self.alpha * (target_q - self.q_table[state, action])
                 state = next_state
-                
+
+            # Lowers curr_epsilon each epoch to reduce exploration over time (exploit more when smarter)
             self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def run_agent(self):
@@ -233,13 +231,12 @@ class SarsaAgent:
             done = False
             total_reward = 0
 
-            curr_epsilon = self.epsilon
-            action = self.choose_action(state, curr_epsilon)
+            action = self.choose_action(state, self.epsilon)
 
             while not done:
                 next_state, reward, done, info = self.env.step(action)
                 total_reward += reward
-                next_action = self.choose_action(next_state, curr_epsilon)
+                next_action = self.choose_action(next_state, self.epsilon)
 
                 old_q = self.q_table[state, action]
                 next_q = self.q_table[next_state, next_action]
@@ -249,6 +246,7 @@ class SarsaAgent:
                 state = next_state
                 action = next_action
 
+            # Lowers curr_epsilon each epoch to reduce exploration over time (exploit more when smarter)
             self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def run_agent(self):
