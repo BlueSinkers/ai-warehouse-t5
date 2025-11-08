@@ -176,8 +176,8 @@ class QLearningAgent:
             total_reward = 0
 
             # Lowers curr_epsilon each epoch to reduce exploration over time (exploit more when smarter)
-            curr_epsilon = self.min_epsilon + (self.epsilon - self.min_epsilon) * np.exp(-self.epsilon_decay * epoch)
-
+            curr_epsilon = self.epsilon
+            
             while not done:
                 action = self.choose_action(state, curr_epsilon)
                 next_state, reward, done, info = self.env.step(action)
@@ -190,6 +190,8 @@ class QLearningAgent:
                 # Update Q-value. Alpha is the learning rate (how much new info overrides old info). Higher alpha = more new info. Lower alpha = more old info
                 self.q_table[state, action] += self.alpha * (target_q - self.q_table[state, action])
                 state = next_state
+                
+            self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def run_agent(self):
         state, info = self.env.reset()
@@ -231,7 +233,7 @@ class SarsaAgent:
             done = False
             total_reward = 0
 
-            curr_epsilon = self.min_epsilon + (self.epsilon - self.min_epsilon) * np.exp(-self.epsilon_decay * epoch)
+            curr_epsilon = self.epsilon
             action = self.choose_action(state, curr_epsilon)
 
             while not done:
@@ -246,6 +248,8 @@ class SarsaAgent:
 
                 state = next_state
                 action = next_action
+
+            self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def run_agent(self):
         state, info = self.env.reset()
