@@ -152,7 +152,7 @@ class QLearningAgent:
         self.alpha = alpha
         self.gamma = gamma
         self.epsilon = epsilon
-        self.epsilon_decay = 1 - epsilon_decay
+        self.epsilon_decay = epsilon_decay
         self.min_epsilon = min_epsilon
         self.total_epochs = total_epochs
 
@@ -213,7 +213,7 @@ class SarsaAgent:
         self.alpha = alpha
         self.gamma = gamma
         self.epsilon = epsilon
-        self.epsilon_decay = 1 - epsilon_decay
+        self.epsilon_decay = epsilon_decay
         self.min_epsilon = min_epsilon
         self.total_epochs = total_epochs
 
