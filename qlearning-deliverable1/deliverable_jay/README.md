@@ -6,7 +6,7 @@ This file contains 3 classes (GridEnvironment, QLearningAgent, SarsaAgent)
 
 I used the libraries NumPy, Time, Sys
 
-This project requires an environment (number of rows, number of columns, starting position of the agent, position of the package, position of the goal, locations of walls, locations of restricted area, 
+This project has an environment (number of rows, number of columns, starting position of the agent, position of the package, position of the goal, locations of walls, locations of restricted area, 
 max number of steps the agent can take, whether or not the agent can move diagonally). These are all customizable but there are default values for all of them if any of them are not specified. The restricted area has severe negative costs which is meant for zones that the robot should not be going in at all (supposed to represent areas with dangerous machinery or if the robot shouldn't be around people, etc). After 
 the environment is created, it creates 2 agents (QLearningAgent and SarsaAgent). When the main function is ran, it runs the QLearningAgent and shows the path that it takes and how many moves it makes. 
 After the QLearningAgent runs, the SarsaAgent runs and does the same. In the current main function, there is an example of when the QLearningAgent runs faster than the SarsaAgent.
