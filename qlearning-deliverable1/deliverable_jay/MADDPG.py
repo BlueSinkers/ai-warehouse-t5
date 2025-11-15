@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 # Import the new environment
-from MADDGP_environment import MultiRobotEnv
+from MADDPG_environment import MultiRobotEnv
 from collections import deque
 import random
 
@@ -324,3 +324,4 @@ if __name__ == "__main__":
 
 
     print("...Conceptual training complete.")
+
