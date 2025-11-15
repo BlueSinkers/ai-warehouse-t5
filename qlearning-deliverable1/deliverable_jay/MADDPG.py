@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 # Import the new environment
-from environment import MultiRobotEnv
+from MADDGP_environment import MultiRobotEnv
 from collections import deque
 import random
 
@@ -321,5 +321,6 @@ if __name__ == "__main__":
                 break # Episode finished
         
         print(f"Episode {ep+1}/{N_EPISODES}, Total Reward: {ep_reward_total:.2f}, Noise: {noise_scale:.2f}")
+
 
     print("...Conceptual training complete.")
